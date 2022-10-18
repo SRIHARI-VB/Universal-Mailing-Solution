@@ -6,24 +6,24 @@ Universal Mailing Solution - User Need
 
 		2.1	Email
 
-			2.1.1 	Read email
-			2.1.2 	Send email
-			2.1.3 	Compose email
+			2.1.1 		Read email
+			2.1.2 		Send email
+			2.1.3 		Compose email
 			2.1.4		Draft email
 			2.1.5		Delete email
 			2.1.6		Block email from any particular mailId
 			2.1.6		Download Attachments
- 			2.1.7 	See the Online Friend list
-			2.1.8 	Chat with the friend - seperate window
-			2.1.9 	Create a Group
-			2.1.10 	Add and Remove members from the group by Admin
+ 			2.1.7 		See the Online Friend list
+			2.1.8 		Chat with the friend - seperate window
+			2.1.9 		Create a Group
+			2.1.10 		Add and Remove members from the group by Admin
 
 		2.2	SMS
 		
 			2.2.1		Create the Gateway by UserName and Password
 			2.2.2		Search by UserName
 			2.2.3		Create a Group
-			2.2.4 	Maintain Contacts group wise
+			2.2.4 		Maintain Contacts group wise
 			2.2.5		Add Contact list
 			2.2.6		Delete Contact list
 			2.2.7		Edit Contact list
