@@ -8,32 +8,30 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TreeView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 public class HomeSceneController {
-
+    @FXML
+    private AnchorPane InboxTree;
 
     @FXML
-    private Font x1;
-
+    private WebView viewContent;
+    
     @FXML
-    private Color x2;
-
-    @FXML
-    private Font x3;
-
-    @FXML
-    private Color x4;
+    private Button btnAddAccount;
 
     @FXML
     void addAccount(ActionEvent event) {
         try{
-            FXMLLoader fxmlLoader=new FXMLLoader(getClass().getResource("addAccount.fxml"));
+            FXMLLoader fxmlLoader=new FXMLLoader(getClass().getResource("./layout/addAccount.fxml"));
             Parent root=(Parent)fxmlLoader.load();
             Stage stage=new Stage();
-            stage.setResizable(false);
+            
             stage.setTitle("YeeKnoM UMS");
             stage.setScene(new Scene(root));
             stage.show();
