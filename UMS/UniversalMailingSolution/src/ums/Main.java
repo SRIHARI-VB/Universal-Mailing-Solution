@@ -9,8 +9,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("./layout/home.fxml"));
-        //primaryStage.setResizable(false);
+        Parent root = FXMLLoader.load(getClass().getResource("./layout/listAccount.fxml"));
+        primaryStage.setResizable(false);
         primaryStage.setTitle("YeeKnoM UMS");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
