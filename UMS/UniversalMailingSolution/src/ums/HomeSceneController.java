@@ -10,13 +10,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
@@ -26,6 +30,7 @@ public class HomeSceneController implements Initializable{
 
     @FXML
     private TreeView<String> emailFoldersTreeView;
+    private TreeItem<String> root=new TreeItem<>();
 
     @FXML
     private AnchorPane homeScene;
@@ -124,8 +129,48 @@ public class HomeSceneController implements Initializable{
             }
         });
 
+        emailFoldersTreeView.setRoot(root);
+        root.setValue("20p151@kce.ac.in");
+        root.setGraphic(getIcon(root.getValue()));
+        root.setExpanded(true);//always the tree view in expanded form
+
+        TreeItem<String> inbox=new TreeItem<>("Inbox", getIcon("Inbox"));
+        TreeItem<String> sent=new TreeItem<>("Sent", getIcon("Sent"));
+        TreeItem<String> spam=new TreeItem<>("Spam", getIcon("Spam"));
+        TreeItem<String> trash=new TreeItem<>("Trash", getIcon("Trash"));
         
+        root.getChildren().addAll(inbox, sent, spam, trash);
+    }
+
+    private Node getIcon(String treeItem){
+        String lowerTreeItem=treeItem.toLowerCase();
+        ImageView returnIcon;
+        if(lowerTreeItem.contains("inbox")){
+            returnIcon=new ImageView(new Image(getClass().getResourceAsStream("images/inbox.png")));
+        } 
+        else if(lowerTreeItem.contains("sent")){
+            returnIcon=new ImageView(new Image(getClass().getResourceAsStream("images/sent.png")));
+        } 
+        else if(lowerTreeItem.contains("spam")){
+            returnIcon=new ImageView(new Image(getClass().getResourceAsStream("images/spam.png")));
+        }
+        else if(lowerTreeItem.contains("trash")){
+            returnIcon=new ImageView(new Image(getClass().getResourceAsStream("images/trash.png")));
+        }
+        else if(lowerTreeItem.contains("@")){
+            returnIcon=new ImageView(new Image(getClass().getResourceAsStream("images/account.png")));
+            returnIcon.setFitHeight(24);
+            returnIcon.setFitWidth(24);
+        }
+        else{
+            returnIcon=new ImageView(new Image(getClass().getResourceAsStream("images/folder.png")));
+        }
+        if(!lowerTreeItem.contains("@")){
+            returnIcon.setFitHeight(16);
+            returnIcon.setFitWidth(16);
+        }
         
+        return returnIcon;
     }
 
 }
